@@ -8,9 +8,13 @@ const adminRoutes = require('./routes/adminRoutes');
 
 dotenv.config();
 const app = express();
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://your-vercel-app.vercel.app'
+];
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
 }));
 app.use(express.json());
